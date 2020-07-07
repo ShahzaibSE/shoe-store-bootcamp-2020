@@ -6,8 +6,11 @@ const gridStyles = makeStyles((theme) => ({
     },
     title: {
       flexGrow: 1,
-      color:"white",
-      textDecoration: null
+      color:"white"
+    },
+    anchor_element: {
+      textDecoration: "none",
+      color: "white"
     },
     cartBtn: {
         color: "white"

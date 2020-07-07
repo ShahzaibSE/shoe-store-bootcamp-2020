@@ -3,20 +3,26 @@ import { red } from '@material-ui/core/colors';
 
 const productStyles = makeStyles((theme) => ({
     root: {
-      maxWidth: 470,
+      minWidth: 300,
       marginTop: 20,
-      marginLeft: 20
+      marginLeft: 20,
+      marginRight: 20,
+      flexGrow: 1
     },
     media: {
-      height: 0,
+      minHeight: 70,
       paddingTop: '56.25%', // 16:9
     },
-    expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
+    favouriteBtn: {
+    },
+    price: {
+      fontSize:30,
+      fontWeight: "bold",
+      color: "black",
+      textAlign: "center"
+    },
+    action_container: {
+      justifyContent: "center"
     }
 }));
 
