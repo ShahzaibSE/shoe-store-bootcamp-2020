@@ -12,12 +12,13 @@ import {Grid} from "@material-ui/core"
 import cx from "classes";
 // Components
 import ProductList from "./../product-list/ProductList"
+import Cart from "./../Cart/Cart"
+import FavouriteComponent from "./../Favourite/Favourite"
+import {Test} from "./../Test/Test"
 // Assets.
 import shoe_logo from "./../../images/shoe-logo-3.png"
 import styles from "./Grid.module.scss"
 import gridStyles from "./Grid.styles"
-// Context.
-import {GlobalProvider, globalContext} from "./../context/GlobalContext"
 
 
 const GridComponent = () => {
@@ -32,22 +33,20 @@ const GridComponent = () => {
                             <span><Link to="/" className={classes.anchor_element}><strong>Shoe Store</strong></Link></span>
                         </Typography>
                         <IconButton aria-label="Favourite" className={classes.cartBtn}>
-                            <Favourite><Link to="/"/></Favourite>
+                            <Link className={classes.anchor_element} to="/favourites"><Favourite/></Link>
                         </IconButton>
                         <IconButton aria-label="Shopping Cart" className={classes.cartBtn}>
-                            <ShoppingCart><Link to="/cart" /></ShoppingCart>
+                            <Link className={classes.anchor_element} to="/cart"><ShoppingCart/></Link>
                         </IconButton>
                     </Toolbar>
                 </AppBar>
             </div> 
             <div>
-               <GlobalProvider> 
-                <Routes>
-                    <div>
-                        <Route to="/" element={<ProductList />}></Route>
-                    </div>
+               <Routes> 
+                        <Route path="/" element={<ProductList />}></Route>
+                        <Route path="cart" element={<Cart />}></Route>
+                        <Route path="favourites" element={<FavouriteComponent />}></Route>
                 </Routes>
-                </GlobalProvider>
             </div>
             </Router>  
         </div>

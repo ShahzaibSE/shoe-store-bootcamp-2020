@@ -10,8 +10,7 @@ const ProductList = () => {
         <div>
                 <Grid container spacing={1}>
                     {
-                        Object.entries(products).map(([shoe_key, {name, img, price}]) => {
-                            let product = {shoe_key, name, img, price}
+                        products.map((product) => {
                             console.log(product)
                             return (
                                 <Grid item xs={4}>
