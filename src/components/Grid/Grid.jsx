@@ -9,15 +9,13 @@ import IconButton from '@material-ui/core/IconButton';
 import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import Favourite from '@material-ui/icons/Favorite';
 import Badge from '@material-ui/core/Badge';
-import {Grid} from "@material-ui/core"
-import cx from "classes";
 // Components
 import ProductList from "./../product-list/ProductList"
 import Cart from "./../Cart/Cart"
 import FavouriteComponent from "./../Favourite/Favourite"
 import {Test} from "./../Test/Test"
 // Assets.
-import shoe_logo from "./../../images/shoe-logo-3.png"
+import shoe_logo from "./../../images/shoe-logo-4.png"
 import styles from "./Grid.module.scss"
 import gridStyles from "./Grid.styles"
 // context.
@@ -34,7 +32,8 @@ const GridComponent = () => {
                 <AppBar position="static">
                     <Toolbar>
                         <Typography variant="h4" className={classes.title}>
-                            <span><Link to="/" className={classes.anchor_element}><strong>Shoe Store</strong></Link></span>
+                            <span><Link to="/" className={classes.anchor_element}>
+                                <strong>Cosmos Store</strong></Link></span>
                         </Typography>
                         {/* <IconButton aria-label="Favourite" className={classes.cartBtn}>
                             <Link className={classes.anchor_element} to="/favourites">
