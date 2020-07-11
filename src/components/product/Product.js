@@ -34,7 +34,6 @@ const Product = ({product}) => {
             <Card className={classes.root}>
                 <CardHeader
                     title={product.name}
-                    subheader="September 14, 2016"
                 />
                 <CardMedia
                     className={classes.media}

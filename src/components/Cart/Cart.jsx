@@ -66,17 +66,9 @@ const Cart = () => {
     const classes = tableStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [prices, setPrices] = useState([])
     let {products, cart_products} = useContext(globalContext)
     let [rows, setCartProducts] = useState(cart_products)
-    if (cart_products) {
-        
-    }else {
-        console.log("Cart product list is empty.")
-    }
-    // console.log("Products in Cart")
-    // console.log(products)
-    console.log("Products added in cart")
-    console.log(cart_products)
     //
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -86,6 +78,18 @@ const Cart = () => {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
+    //
+    const calculatePrice = () => {
+        let price = 0.00
+        let initial_value = 0
+        if (cart_products.length > 0) {
+            price = cart_products.map(cart_product => (cart_product.price))
+                                             .reduce((initial_value, current_value) => (initial_value + current_value))
+            return price.toFixed(2)                                 
+        }else {
+            return price.toFixed(2)
+        }
+    }
     //
     return (
         // <h1>Hello World</h1>
@@ -147,7 +151,7 @@ const Cart = () => {
                             <Typography variant="h6">Items</Typography>
                         </div>    
                         <div className={classes.no_of_items_value_container}> 
-                            <Typography variant="h6">2</Typography>
+                        <Typography variant="h6">{cart_products.length}</Typography>
                         </div>    
                     </div>
                     <div className={classes.total_container}>
@@ -156,7 +160,7 @@ const Cart = () => {
                         </Typography>
                         <Typography variant="body2" display="inline" align="right" component="p" className={classes.order_summary_price}
                            style={{float:"right"}}>
-                            $20.00
+                            ${calculatePrice()}
                         </Typography>
                     </div>
                 </CardContent>
