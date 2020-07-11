@@ -33,7 +33,7 @@ const GridComponent = () => {
                     <Toolbar>
                         <Typography variant="h4" className={classes.title}>
                             <span><Link to="/" className={classes.anchor_element}>
-                                <strong>Cosmos Store</strong></Link></span>
+                                <strong>Cosmo Store</strong></Link></span>
                         </Typography>
                         {/* <IconButton aria-label="Favourite" className={classes.cartBtn}>
                             <Link className={classes.anchor_element} to="/favourites">
