@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import Favourite from '@material-ui/icons/Favorite';
+import Badge from '@material-ui/core/Badge';
 import {Grid} from "@material-ui/core"
 import cx from "classes";
 // Components
@@ -20,10 +21,12 @@ import shoe_logo from "./../../images/shoe-logo-3.png"
 import styles from "./Grid.module.scss"
 import gridStyles from "./Grid.styles"
 // context.
-import {GlobalProvider} from "./../context/GlobalContext"
+import {globalContext} from "./../context/GlobalContext"
 
 const GridComponent = () => {
     const classes = gridStyles()
+    const {cart_products} = useContext(globalContext)
+    let number_of_cart_products = 0
     return (
         <div>
            <Router> 
@@ -37,7 +40,11 @@ const GridComponent = () => {
                             <Link className={classes.anchor_element} to="/favourites"><Favourite/></Link>
                         </IconButton>
                         <IconButton aria-label="Shopping Cart" className={classes.cartBtn}>
-                            <Link className={classes.anchor_element} to="/cart"><ShoppingCart/></Link>
+                            <Link className={classes.anchor_element} to="/cart">
+                                 <Badge badgeContent={cart_products.length} color="error">
+                                        <ShoppingCart/>
+                                     </Badge> 
+                            </Link>
                         </IconButton>
                     </Toolbar>
                 </AppBar>
