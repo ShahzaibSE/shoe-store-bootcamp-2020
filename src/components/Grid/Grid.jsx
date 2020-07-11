@@ -37,7 +37,11 @@ const GridComponent = () => {
                             <span><Link to="/" className={classes.anchor_element}><strong>Shoe Store</strong></Link></span>
                         </Typography>
                         <IconButton aria-label="Favourite" className={classes.cartBtn}>
-                            <Link className={classes.anchor_element} to="/favourites"><Favourite/></Link>
+                            <Link className={classes.anchor_element} to="/favourites">
+                                <Badge badgeContent={0} color="error">
+                                    <Favourite/>
+                                </Badge>    
+                            </Link>
                         </IconButton>
                         <IconButton aria-label="Shopping Cart" className={classes.cartBtn}>
                             <Link className={classes.anchor_element} to="/cart">
