@@ -30,13 +30,22 @@ export const GlobalProvider = ({children}) => {
                 payload:cart_product
             })
     }
+    //
+    function checkout_cart() {
+        dispatch(
+            {
+                type: "CHECKOUT_CART",
+                payload:[]
+            })
+    }
 
     return(
         <globalContext.Provider value={
             {
                 products: state.products,
                 cart_products: state.cart_products,
-                add_to_cart
+                add_to_cart,
+                checkout_cart
             }
         }
         >
