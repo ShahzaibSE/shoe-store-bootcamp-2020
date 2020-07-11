@@ -15,13 +15,14 @@ import CardActions from '@material-ui/core/CardActions';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import {Grid} from "@material-ui/core";
+import Button from "@material-ui/core/Button"
 import cx from "classes";
 
 // Assets.
 import {tableStyles} from "./Cart.style"
 import styles from "./Cart.module.scss"
 // Context.
-import {globalContext} from "./../context/GlobalContext"
+import {globalContext, GlobalProvider} from "./../context/GlobalContext"
 
 const columns = [
     { id: 'image', label: '     ', minWidth: 60},
@@ -40,34 +41,42 @@ const columns = [
     return { name, code, population, size, density };
   }
   
-const rows = [
-    {
-        name: "RACER BLUE",
-        img:
-          "https://secure-images.nike.com/is/image/DotCom/CK6637_104_A_PREM?$SNKRS_COVER_WD$&align=0,1",
-        price: 45  
-    },
-    {
-        name: "Native BLUE",
-        img:
-          "https://secure-images.nike.com/is/image/DotCom/CK6637_104_A_PREM?$SNKRS_COVER_WD$&align=0,1",
-        price: 35
-    },
-    {
-        name: "Glide BLUE",
-        img:
-          "https://secure-images.nike.com/is/image/DotCom/CK6637_104_A_PREM?$SNKRS_COVER_WD$&align=0,1",
-        price: 30  
-    }
-]
+// const rows = [
+//     {
+//         name: "RACER BLUE",
+//         img:
+//           "https://secure-images.nike.com/is/image/DotCom/CK6637_104_A_PREM?$SNKRS_COVER_WD$&align=0,1",
+//         price: 45  
+//     },
+//     {
+//         name: "Native BLUE",
+//         img:
+//           "https://secure-images.nike.com/is/image/DotCom/CK6637_104_A_PREM?$SNKRS_COVER_WD$&align=0,1",
+//         price: 35
+//     },
+//     {
+//         name: "Glide BLUE",
+//         img:
+//           "https://secure-images.nike.com/is/image/DotCom/CK6637_104_A_PREM?$SNKRS_COVER_WD$&align=0,1",
+//         price: 30  
+//     }
+// ]
 
 const Cart = () => {
     const classes = tableStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
-    let {products} = useContext(globalContext)
-    console.log("Products in Cart")
-    console.log(products)
+    let {products, cart_products} = useContext(globalContext)
+    let [rows, setCartProducts] = useState(cart_products)
+    if (cart_products) {
+        
+    }else {
+        console.log("Cart product list is empty.")
+    }
+    // console.log("Products in Cart")
+    // console.log(products)
+    console.log("Products added in cart")
+    console.log(cart_products)
     //
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -79,8 +88,9 @@ const Cart = () => {
     };
     //
     return (
+        // <h1>Hello World</h1>
         <Grid container spacing={6}>
-            <Grid item xs={6}>
+            <Grid item xs={7}>
                 <Paper className={classes.root}>
                     <TableContainer className={classes.container}>
                             <Table stickyHeader aria-label="sticky table">
@@ -103,9 +113,9 @@ const Cart = () => {
                                 <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
                                     <TableCell align="left"><img width={200} height={200} src={row.img} alt={row.name}/></TableCell>
                                     <TableCell component="th" scope="row" align="left">
-                                        {row.name}
+                                        <span style={{fontWeight:"bold"}}>{row.name}</span>
                                     </TableCell>
-                                    <TableCell align="left">{row.price}</TableCell>
+                                    <TableCell align="left"><span style={{fontWeight:"bold"}}>${row.price}</span></TableCell>
                                 </TableRow>
                             );
                             })}
@@ -150,8 +160,10 @@ const Cart = () => {
                         </Typography>
                     </div>
                 </CardContent>
-                <CardActions classes={{title: classes.order_summary_header}}>
-                    
+                <CardActions>
+                <Button variant="contained" size="large" className={classes.checkout_btn}>
+                        CHECKOUT
+                </Button>
                 </CardActions>
             </Card>
             </Grid>

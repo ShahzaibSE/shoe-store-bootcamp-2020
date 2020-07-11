@@ -4,7 +4,7 @@ export const tableStyles = makeStyles({
     root: {
       width: '100%',
       marginTop: 20,
-      marginLeft: 20,
+      marginLeft: 30,
       marginRight: 20
     },
     container: {
@@ -56,5 +56,10 @@ export const tableStyles = makeStyles({
     total_container: {
       paddingLeft: 30,
       paddingRight: 30
+    },
+    checkout_btn: {
+      backgroundColor: "#f44336",
+      width: "100%",
+      color: "white"
     }
   });

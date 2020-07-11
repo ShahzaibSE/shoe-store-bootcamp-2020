@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useState, useContext} from 'react'
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -18,33 +18,40 @@ import AddShoppingCart from '@material-ui/icons/AddShoppingCart';
 // Assets.
 import productStyles from "./Product.styles"
 // Context.
-import {globalContext} from "./../context/GlobalContext"
+import {globalContext, GlobalProvider} from "./../context/GlobalContext"
 
-const Product = ({product : {shoe_key, name, img, price}}) => {
+const Product = ({product}) => {
+    const {add_to_cart} = useContext(globalContext)
     const classes = productStyles()
+    //
+    const AddToCart = ()=>{
+        console.log("Product added in the cart")
+        console.log(product)
+        add_to_cart(product)
+    }
     return (
         <div>
             <Card className={classes.root}>
                 <CardHeader
-                    title={name}
+                    title={product.name}
                     subheader="September 14, 2016"
                 />
                 <CardMedia
                     className={classes.media}
-                    image={img}
-                    title={name}
+                    image={product.img}
+                    title={product.name}
                 />
                 <CardContent>
                     <Typography variant="body2" component="p" className={classes.price}>
-                     ${price}.00
+                     ${product.price}.00
                     </Typography>
                 </CardContent>
                 <CardActions className={classes.action_container}>
                     <IconButton aria-label="Add to favorites">
                         <FavoriteIcon />
                     </IconButton>
-                    <IconButton aria-label="Add to Cart">
-                        <AddShoppingCart />
+                    <IconButton aria-label="Add to Cart" onClick={()=>{AddToCart()}}>
+                        <AddShoppingCart/>
                     </IconButton>
                 </CardActions>
             </Card>

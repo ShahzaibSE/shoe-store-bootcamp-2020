@@ -9,9 +9,9 @@ import {GlobalProvider} from "./components/context/GlobalContext"
 function App() {
   return (
     <div className="App">
-      <GlobalProvider> 
+      <GlobalProvider>
           <GridComponent />
-        </GlobalProvider>
+      </GlobalProvider>    
     </div>
   );
 }

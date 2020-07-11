@@ -19,7 +19,8 @@ import {Test} from "./../Test/Test"
 import shoe_logo from "./../../images/shoe-logo-3.png"
 import styles from "./Grid.module.scss"
 import gridStyles from "./Grid.styles"
-
+// context.
+import {GlobalProvider} from "./../context/GlobalContext"
 
 const GridComponent = () => {
     const classes = gridStyles()
@@ -41,12 +42,12 @@ const GridComponent = () => {
                     </Toolbar>
                 </AppBar>
             </div> 
-            <div>
-               <Routes> 
-                        <Route path="/" element={<ProductList />}></Route>
-                        <Route path="cart" element={<Cart />}></Route>
-                        <Route path="favourites" element={<FavouriteComponent />}></Route>
-                </Routes>
+            <div>  
+                    <Routes> 
+                            <Route path="/" element={<ProductList />}></Route>
+                            <Route path="cart" element={<Cart />}></Route>  
+                            <Route path="favourites" element={<FavouriteComponent />}></Route>   
+                    </Routes>
             </div>
             </Router>  
         </div>

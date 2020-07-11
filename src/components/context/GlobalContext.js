@@ -4,7 +4,8 @@ import AppReducer from "./AppReducer"
 import shoes from "./../data/data"
 //
 const initialState = { 
-    products: shoes
+    products: shoes,
+    cart_products: []
 }
 /*
 .
@@ -21,10 +22,21 @@ export const globalContext = createContext(initialState)
 */
 export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(AppReducer,initialState)
+
+    function add_to_cart(cart_product) {
+        dispatch(
+            {
+                type: "ADD_TO_CART",
+                payload:cart_product
+            })
+    }
+
     return(
         <globalContext.Provider value={
             {
-                products: state.products
+                products: state.products,
+                cart_products: state.cart_products,
+                add_to_cart
             }
         }
         >
