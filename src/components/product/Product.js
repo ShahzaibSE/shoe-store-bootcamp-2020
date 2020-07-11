@@ -46,9 +46,9 @@ const Product = ({product}) => {
                     </Typography>
                 </CardContent>
                 <CardActions className={classes.action_container}>
-                    <IconButton aria-label="Add to favorites">
+                    {/* <IconButton aria-label="Add to favorites">
                         <FavoriteIcon />
-                    </IconButton>
+                    </IconButton> */}
                     <IconButton aria-label="Add to Cart" onClick={()=>{AddToCart()}}>
                         <AddShoppingCart/>
                     </IconButton>

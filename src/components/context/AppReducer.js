@@ -10,6 +10,11 @@ export default (state, action) => {
                 ...state,
                 cart_products: []
             }   
+        case "DELETE_CART_PRODUCT":
+            return {
+                ...state,
+                cart_products: state.cart_products.filter( cart_product => cart_product.id !== action.payload)
+            }    
        default:
            return state
    }

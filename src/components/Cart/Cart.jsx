@@ -15,7 +15,9 @@ import CardActions from '@material-ui/core/CardActions';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import {Grid} from "@material-ui/core";
-import Button from "@material-ui/core/Button"
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import Delete from "@material-ui/icons/Delete"
 import cx from "classes";
 
 // Assets.
@@ -66,7 +68,7 @@ const Cart = () => {
     const classes = tableStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
-    let {products, cart_products, checkout_cart} = useContext(globalContext)
+    let {products, cart_products, checkout_cart, delete_cart_product} = useContext(globalContext)
     let [rows, setCartProducts] = useState(cart_products)
     //
     let items = cart_products.map(item => (item))
@@ -84,7 +86,12 @@ const Cart = () => {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
-
+    //
+    const delete_product = (product_id) => {
+        console.log("Product in Cart.")
+        delete_cart_product(product_id)
+    }
+    //
     const checking_out = () => {
         setCartProducts([])
         checkout_cart()

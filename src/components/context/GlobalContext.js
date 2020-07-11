@@ -31,6 +31,13 @@ export const GlobalProvider = ({children}) => {
             })
     }
     //
+    function delete_cart_product(product_id) {
+        dispatch({
+            type:"DELETE_CART_PRODUCT",
+            payload: product_id
+        })
+    }
+    //
     function checkout_cart() {
         dispatch(
             {
@@ -45,7 +52,8 @@ export const GlobalProvider = ({children}) => {
                 products: state.products,
                 cart_products: state.cart_products,
                 add_to_cart,
-                checkout_cart
+                checkout_cart,
+                delete_cart_product
             }
         }
         >
