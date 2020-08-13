@@ -2,7 +2,6 @@
 
 ### [Demo](http://shahzaibnoor-shoe-store-bootcamp-2020.surge.sh/)
 
-<br/>
 
 ## Prerequisites.
 
