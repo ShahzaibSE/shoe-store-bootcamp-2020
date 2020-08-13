@@ -1,3 +1,4 @@
+[![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
 # shoe-store-bootcamp-2020
 
 ### [Demo](http://shahzaibnoor-shoe-store-bootcamp-2020.surge.sh/)
